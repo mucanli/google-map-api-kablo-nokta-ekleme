@@ -1,0 +1,42 @@
+
+.print{
+  display:none
+}
+.printp{
+	display:block;
+}
+
+body{
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  font-size:20px;
+	font-weight:bold;
+	
+}
+
+#example2 th{
+	color:black;
+	text-align: center; 
+	font-weight:bold;
+	font-size: 20px;
+	border:2px solid black;
+}
+
+#example2 tr{
+	color:black;
+	text-align: center; 
+	font-weight:bold;
+	font-size: 20px;
+	border:2px solid black;
+}
+#example2 td{
+text-align: center; 
+font-size: 20px;
+border:2px solid black;
+}
+
+table{
+	border:2px solid black;
+}
+
+

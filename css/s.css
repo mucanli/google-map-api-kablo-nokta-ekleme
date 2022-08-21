@@ -1,0 +1,695 @@
+
+
+
+
+
+
+
+
+
+
+
+div.event-editor {
+  width: calc(100% - (10px * 2));
+  height: auto;
+
+  max-width: 370px;
+  border-radius: 0.25rem;
+  background-color: #F5F5F5;
+ 
+  position: fixed;
+  left: 50%;
+  top: 12%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  z-index: 1500;
+}
+
+div.event-editor div.view {
+  position: relative;
+}
+
+div.event-editor div.view div.title-bar {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  background-color: #282828;
+  color: #F5F5F5;
+  padding: 10px;
+  text-align: center;
+}
+
+div.event-editor div.view div.input-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+div.event-editor div.view div.input-title-container input[type="text"] {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-bottom: 0 !important;
+}
+
+div.event-editor div.view div.input-title-container input[type="button"] {
+  padding: .375rem .75rem;
+  margin-left: 10px;
+  line-height: 0;
+}
+
+div.event-editor div.view div.contents {
+  padding: 10px;
+}
+
+div.event-editor div.view input:not([type="button"]),
+div.event-editor div.view textarea {
+  color: #282828;
+  width: 100%;
+  padding: .375rem .75rem;
+  border: 1px solid #A8A8A8;
+  border-radius: 0.25rem;
+  outline: none;
+  margin-bottom: 10px;
+  background-color: #FFFFFF;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+div.event-editor div.view input:not([type="button"]):last-child,
+div.event-editor div.view textarea:last-child {
+  margin-bottom: 0;
+}
+
+div.event-editor div.view input:not([type="button"]):focus,
+div.event-editor div.view textarea:focus {
+  border: 1px solid #282828;
+  -webkit-box-shadow: 0 0 1pt 1pt #282828;
+          box-shadow: 0 0 1pt 1pt #282828;
+}
+
+div.event-editor div.view input:disabled {
+  background-color: #F5F5F5;
+}
+
+div.event-editor div.view textarea {
+  height: 70px;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+div.event-editor div.view p {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+div.event-editor div.view p.error {
+  color: #C60000;
+  display: none;
+  margin-bottom: 20px;
+}
+
+div.event-editor div.view div.split input {
+  width: calc(50% - (10px / 2));
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+div.event-editor div.view div.split input:first-child {
+  margin-left: 0;
+}
+
+div.event-editor div.view div.split input:last-child {
+  margin-right: 0;
+}
+
+div.event-editor div.view input[type="button"] {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  padding: .255rem .55rem;
+  line-height: 1.8;
+  border-radius: 0.25rem;
+  outline: 0;
+  cursor: pointer;
+}
+
+div.event-editor div.view input[type="button"]:disabled {
+  background-color: #A8A8A8 !important;
+  cursor: default !important;
+}
+
+div.event-editor div.view input[type="button"].ok {
+  color: #F5F5F5;
+  background-color: #289345;
+}
+
+div.event-editor div.view input[type="button"].ok:not(:disabled):hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+div.event-editor div.view input[type="button"].ok:not(:disabled):active {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+div.event-editor div.view input[type="button"].cancel {
+  color: #F5F5F5;
+  background-color: #C60000;
+}
+
+div.event-editor div.view input[type="button"].cancel:not(:disabled):hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+div.event-editor div.view input[type="button"].cancel:not(:disabled):active {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+div.event-editor div.view input[type="button"].remove {
+  color: #F5F5F5;
+  background-color: #282828;
+}
+
+div.event-editor div.view input[type="button"].remove:not(:disabled):hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+div.event-editor div.view input[type="button"].remove:not(:disabled):active {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+div.event-editor div.view input[type="button"].select-colors {
+  color: #F5F5F5;
+  background-color: #6c757d;
+}
+
+div.event-editor div.view input[type="button"].select-colors:not(:disabled):hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+div.event-editor div.view input[type="button"].select-colors:not(:disabled):active {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+div.event-editor div.view input[type="button"].days-to-exclude {
+  color: #F5F5F5;
+  background-color: #6c757d;
+}
+
+div.event-editor div.view input[type="button"].days-to-exclude:not(:disabled):hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+div.event-editor div.view input[type="button"].days-to-exclude:not(:disabled):active {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+div.event-editor div.view input[type="button"].remove {
+  margin-top: 10px;
+  width: 100%;
+}
+
+div.event-editor div.view input[type="button"].select-colors, div.event-editor div.view input[type="button"].days-to-exclude {
+  width: 50px;
+}
+
+div.event-editor div.view input[type="button"].days-to-exclude {
+  position: absolute;
+  margin: 0 !important;
+  bottom: 0;
+  right: 0;
+}
+
+/**/
+
+div.event-editor-colors {
+  width: calc(100% - (10px * 2));
+  max-width: 250px;
+  border-radius: 0.25rem;
+  background-color: #F5F5F5;
+  border: 1px solid #282828;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  z-index: 1500;
+}
+
+div.event-editor-colors div.title-bar {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  background-color: #282828;
+  color: #F5F5F5;
+  padding: 10px;
+  text-align: center;
+}
+
+div.event-editor-colors div.contents {
+  padding: 10px;
+}
+
+div.event-editor-colors input[type="color"],
+div.event-editor-colors input[type="text"] {
+  color: #282828;
+  width: 100%;
+  padding: .375rem .75rem;
+  border: 1px solid #A8A8A8;
+  border-radius: 0.25rem;
+  outline: none;
+  margin-bottom: 10px;
+  background-color: #FFFFFF;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  height: 40px;
+}
+
+div.event-editor-colors input[type="color"]:last-child,
+div.event-editor-colors input[type="text"]:last-child {
+  margin-bottom: 0;
+}
+
+div.event-editor-colors input[type="color"]:focus,
+div.event-editor-colors input[type="text"]:focus {
+  border: 1px solid #282828;
+  -webkit-box-shadow: 0 0 1pt 1pt #282828;
+          box-shadow: 0 0 1pt 1pt #282828;
+}
+
+div.event-editor-colors p {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+div.event-editor-colors div.split input {
+  width: calc(50% - (10px / 2));
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+div.event-editor-colors div.split input:first-child {
+  margin-left: 0;
+}
+
+div.event-editor-colors div.split input:last-child {
+  margin-right: 0;
+}
+
+div.event-editor-colors div.split {
+  margin-top: 10px;
+}
+
+div.event-editor-colors input[type="button"] {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  padding: .255rem .55rem;
+  line-height: 1.8;
+  border-radius: 0.25rem;
+  outline: 0;
+  cursor: pointer;
+}
+
+div.event-editor-colors input[type="button"]:disabled {
+  background-color: #A8A8A8 !important;
+  cursor: default !important;
+}
+
+div.event-editor-colors input[type="button"].ok {
+  color: #F5F5F5;
+  background-color: #289345;
+}
+
+div.event-editor-colors input[type="button"].ok:not(:disabled):hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+div.event-editor-colors input[type="button"].ok:not(:disabled):active {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+div.event-editor-colors input[type="button"].cancel {
+  color: #F5F5F5;
+  background-color: #C60000;
+}
+
+div.event-editor-colors input[type="button"].cancel:not(:disabled):hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+div.event-editor-colors input[type="button"].cancel:not(:disabled):active {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+/*
+    -------------------------------------------------------------------------
+    Calendar.js - Dialog - Event Editor Exclude Days
+    -------------------------------------------------------------------------
+*/
+div.event-editor-exclude-days {
+  width: calc(100% - (10px * 2));
+  max-width: 250px;
+  border-radius: 0.25rem;
+  background-color: #F5F5F5;
+  border: 1px solid #282828;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  z-index: 1500;
+}
+
+div.event-editor-exclude-days div.title-bar {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  background-color: #282828;
+  color: #F5F5F5;
+  padding: 10px;
+  text-align: center;
+}
+
+div.event-editor-exclude-days div.contents {
+  padding: 10px;
+}
+
+div.event-editor-exclude-days label.checkbox {
+  margin-bottom: 5px !important;
+}
+
+div.event-editor-exclude-days div.split input {
+  width: calc(50% - (10px / 2));
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+div.event-editor-exclude-days div.split input:first-child {
+  margin-left: 0;
+}
+
+div.event-editor-exclude-days div.split input:last-child {
+  margin-right: 0;
+}
+
+div.event-editor-exclude-days div.split {
+  margin-top: 20px;
+}
+
+div.event-editor-exclude-days input[type="button"] {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  padding: .255rem .55rem;
+  line-height: 1.8;
+  border-radius: 0.25rem;
+  outline: 0;
+  cursor: pointer;
+}
+
+div.event-editor-exclude-days input[type="button"]:disabled {
+  background-color: #A8A8A8 !important;
+  cursor: default !important;
+}
+
+div.event-editor-exclude-days input[type="button"].ok {
+  color: #F5F5F5;
+  background-color: #289345;
+}
+
+div.event-editor-exclude-days input[type="button"].ok:not(:disabled):hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+div.event-editor-exclude-days input[type="button"].ok:not(:disabled):active {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+div.event-editor-exclude-days input[type="button"].cancel {
+  color: #F5F5F5;
+  background-color: #C60000;
+}
+
+div.event-editor-exclude-days input[type="button"].cancel:not(:disabled):hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+div.event-editor-exclude-days input[type="button"].cancel:not(:disabled):active {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+
+/* calender dialog*/
+
+
+
+div.calendar label.checkbox,
+div.calendar-dialog label.checkbox {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  padding-top: 1px;
+  margin-bottom: 10px;
+  color: #282828;
+}
+
+div.calendar label.checkbox input,
+div.calendar-dialog label.checkbox input {
+  display: none;
+}
+
+div.calendar label.checkbox input:checked ~ span.check-mark,
+div.calendar-dialog label.checkbox input:checked ~ span.check-mark {
+  background-color: #282828 !important;
+  border: 1px solid #282828;
+}
+
+div.calendar label.checkbox input:checked ~ span.check-mark:before,
+div.calendar-dialog label.checkbox input:checked ~ span.check-mark:before {
+  display: block;
+}
+
+div.calendar label.checkbox span.check-mark,
+div.calendar-dialog label.checkbox span.check-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #FFFFFF;
+  border-radius: 0.25rem;
+  border: 1px solid #A8A8A8;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+div.calendar label.checkbox span.check-mark:before,
+div.calendar-dialog label.checkbox span.check-mark:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 7px;
+  border: solid #F5F5F5;
+  border-width: 0 3px 3px 0;
+}
+
+/*
+    -------------------------------------------------------------------------
+    Calendar.js - Radio Button
+    -------------------------------------------------------------------------
+*/
+div.calendar div.radioButtonsContainer,
+div.calendar-dialog div.radioButtonsContainer {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+div.calendar div.radioButtonContainer,
+div.calendar-dialog div.radioButtonContainer {
+  margin-bottom: 5px;
+}
+
+div.calendar div.radioButtonContainer label.radioButton,
+div.calendar-dialog div.radioButtonContainer label.radioButton {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  padding-top: 1px;
+  color: #282828;
+}
+
+div.calendar div.radioButtonContainer label.radioButton input,
+div.calendar-dialog div.radioButtonContainer label.radioButton input {
+  display: none;
+}
+
+div.calendar div.radioButtonContainer label.radioButton input:checked ~ span.check-mark,
+div.calendar-dialog div.radioButtonContainer label.radioButton input:checked ~ span.check-mark {
+  background-color: #282828 !important;
+  border: 1px solid #282828;
+}
+
+div.calendar div.radioButtonContainer label.radioButton input:checked ~ span.check-mark:before,
+div.calendar-dialog div.radioButtonContainer label.radioButton input:checked ~ span.check-mark:before {
+  display: block;
+}
+
+div.calendar div.radioButtonContainer label.radioButton input:disabled ~ span.check-mark,
+div.calendar div.radioButtonContainer label.radioButton input:disabled ~ span.text,
+div.calendar-dialog div.radioButtonContainer label.radioButton input:disabled ~ span.check-mark,
+div.calendar-dialog div.radioButtonContainer label.radioButton input:disabled ~ span.text {
+  opacity: 0.5;
+}
+
+div.calendar div.radioButtonContainer label.radioButton span.check-mark,
+div.calendar-dialog div.radioButtonContainer label.radioButton span.check-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  border: 1px solid #A8A8A8;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+div.calendar div.radioButtonContainer label.radioButton span.check-mark:before,
+div.calendar-dialog div.radioButtonContainer label.radioButton span.check-mark:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 4px;
+  width: 7px;
+  height: 7px;
+  background-color: #F5F5F5;
+  border-radius: 50%;
+}
+
+div.calendar div.radioButtonContainer:last-child,
+div.calendar-dialog div.radioButtonContainer:last-child {
+  margin-bottom: 10px;
+}
+
