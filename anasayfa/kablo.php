@@ -7,7 +7,7 @@
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
  <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL1yqeCqQCpBoryeL9auON97RuCcQYaDo&callback=initMap&libraries=&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key='google api key'&callback=initMap&libraries=&v=weekly"
       async
     ></script>
 
